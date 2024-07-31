@@ -22,14 +22,14 @@ Video Insight Shorts Generator는 긴 영상을 분석하여 주요 주제를 �
 
 1. 레포지토리 클론
    ```
-   git clone https://github.com/yourusername/video-insights-generator.git
+   git clone https://github.com/NB3025/video-insights-generator.git
    cd video-insights-generator
    ```
 
 2. 가상 환경 생성 및 활성화
    ```
    python -m venv venv
-   source venv/bin/activate  # Windows의 경우: venv\Scripts\activate
+   source venv/bin/activate 
    ```
 
 3. 필요한 패키지 설치
