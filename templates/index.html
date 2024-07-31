@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Analysis - Apple Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <h1>Video Analysis</h1>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <section class="upload-section">
+            <h2>Upload Your Video</h2>
+            <p>Experience advanced video analysis powered by AI.</p>
+            <div class="file-upload" id="dropZone">
+                <input type="file" id="videoFile" accept="video/*" class="hidden-input">
+                <label for="videoFile" class="upload-button">
+                    <span id="fileLabel">Choose File or Drag & Drop</span>
+                </label>
+            </div>
+            <div>
+                <button id="uploadBtn" onclick="uploadVideo()" class="action-button">Analyze Video</button>
+            </div>
+            <div id="progressBarContainer" class="progress-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <div id="uploadedFileName" class="file-name"></div>
+            <div id="status" class="status"></div>
+        </section>
+        <section id="progressSection" class="progress-section">
+            <div class="process-diagram">
+                <div class="process-step" id="step-upload">
+                    <i class="fas fa-upload"></i>
+                    <span>Upload</span>
+                </div>
+                <div class="process-arrow"></div>
+                <div class="process-step" id="step-s3">
+                    <i class="fab fa-aws"></i>
+                    <span>S3</span>
+                </div>
+                <div class="process-arrow"></div>
+                <div class="process-step" id="step-transcribe">
+                    <i class="fas fa-language"></i>
+                    <span>Transcribe</span>
+                </div>
+                <div class="process-arrow"></div>
+                <div class="process-step" id="step-bedrock">
+                    <i class="fas fa-brain"></i>
+                    <span>Bedrock</span>
+                </div>
+            </div>
+        </section>
+        <section id="resultSection" class="result-section" style="display: none;">
+            <h2>Analysis Results</h2>
+            <div class="results-container">
+                <div class="topics-container">
+                    <h3>Topics:</h3>
+                    <ul id="topicsList" class="topics-list"></ul>
+                </div>
+                <div class="short-videos-container">
+                    <h3>Short Videos:</h3>
+                    <div id="shortVideosPreview" class="short-videos-preview"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+
+</html>
