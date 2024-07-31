@@ -51,7 +51,7 @@ Video Insight Shorts Generator는 긴 영상을 분석하여 주요 주제를 �
    - AWS 웹 콘솔에서 S3를 만들거나 AWS CLI를 이용하여 S3를 만드세요.
    ```
    S3 이름 : shorts-gmeio812d
-   aws s3 mb s3://shorts-gmeio812d
+   aws s3 mb s3://shorts-gmeio812d --profile my-profile
    ```
    - app.py 내 BUCKET_NAME을 위에서 만든 버킷 이름으로 수정하세요.
    ```
