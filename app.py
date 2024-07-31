@@ -24,7 +24,7 @@ app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024  # 500 MB 제한
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-session = boto3.Session(profile_name='my-profile', region_name='ap-northeast-2')
+session = boto3.Session(profile_name='my-profile', region_name='us-east-1')
 s3 = session.client('s3')
 transcribe = session.client("transcribe")
 
