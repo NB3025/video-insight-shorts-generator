@@ -22,14 +22,14 @@ Video Insight Shorts Generator는 긴 영상을 분석하여 주요 주제를 �
 
 1. 레포지토리 클론
    ```
-   git clone https://github.com/yourusername/video-insights-generator.git
-   cd video-insights-generator
+   git clone https://github.com/NB3025/video-insight-shorts-generator.git
+   cd video-insight-shorts-generator
    ```
 
 2. 가상 환경 생성 및 활성화
    ```
    python -m venv venv
-   source venv/bin/activate  # Windows의 경우: venv\Scripts\activate
+   source venv/bin/activate 
    ```
 
 3. 필요한 패키지 설치
@@ -39,11 +39,30 @@ Video Insight Shorts Generator는 긴 영상을 분석하여 주요 주제를 �
 
 4. AWS 자격 증명 설정
    - AWS CLI를 설치하고 `aws configure` 명령어를 사용하여 자격 증명을 설정하세요.
+   ```bash
+   $ aws configure --profile my-profile 
+   AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+   AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+   Default region name [None]: us-east-1
+   Default output format [None]: json
+   ```
+   
+5. S3 생성
+   - AWS 웹 콘솔에서 S3를 만들거나 AWS CLI를 이용하여 S3를 만드세요.
+   ```
+   S3 이름 : shorts-gmeio812d
+   aws s3 mb s3://shorts-gmeio812d
+   ```
+   - app.py 내 BUCKET_NAME을 위에서 만든 버킷 이름으로 수정하세요.
+   ```
+   BUCKET_NAME = 'shorts-gmeio812d'
+   ```
 
 5. 애플리케이션 실행
    ```
    python app.py
    ```
+   
 
 6. 웹 브라우저에서 `http://localhost:3000` 접속
 
@@ -58,13 +77,3 @@ Video Insight Shorts Generator는 긴 영상을 분석하여 주요 주제를 �
 ## 라이선스
 
 이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
-
-## 기여
-
-버그 리포트, 기능 제안 또는 풀 리퀘스트는 언제나 환영합니다. 기여하기 전에 프로젝트의 기여 가이드라인을 확인해 주세요.
-
-## 연락처
-
-프로젝트 관리자 - [Your Name](mailto:your.email@example.com)
-
-프로젝트 링크: https://github.com/yourusername/video-insights-generator
