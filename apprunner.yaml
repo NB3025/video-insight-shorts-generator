@@ -14,7 +14,7 @@ build:
       value: "app.py"
 run:
   runtime-version: 3.11
-  command: python app.py
+  command: pipenv run python app.py
   network:
     port: 3000
     env: PORT
