@@ -4,8 +4,9 @@ build:
   commands:
     pre-build:
       - echo "Pre-build phase"
+      - pip3 install pipenv
     build:
-      - pip install -r requirements.txt
+      - pipenv install -r requirements.txt
     post-build:
       - echo "Post-build phase"
   env:
