@@ -24,12 +24,15 @@ app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024  # 500 MB 제한
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-session = boto3.Session(profile_name='my-profile', region_name='us-east-1')
+
+AWS_REGION = os.environ.get('AWS_REGION', 'us-west-2')
+BUCKET_NAME = os.environ.get('BUCKET_NAME', 'default-bucket-name')
+
+
+session = boto3.Session(region_name=AWS_REGION)
 s3 = session.client('s3')
 transcribe = session.client("transcribe")
-
-new_session = boto3.Session(profile_name='my-profile', region_name='us-east-1')
-bedrock = new_session.client("bedrock-runtime")
+bedrock = session.client("bedrock-runtime")
 
 BUCKET_NAME = f'shortvideo-s3-{uuid.uuid4()}'
 VIDEO_FOLDER = 'videos/'
@@ -351,4 +354,5 @@ def create_short_video(job_name, topic_index):
             short_video.close()
     
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3000, debug=True)
+    port = int(os.environ.get('PORT', 3000))
+    app.run(host='0.0.0.0', port=port, debug=False)

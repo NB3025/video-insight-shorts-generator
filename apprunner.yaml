@@ -1,0 +1,28 @@
+
+   version: 1.0
+   runtime: python3
+   build:
+     commands:
+       - pip install -r requirements.txt
+   run:
+     runtime-version: 3.9
+     command: python app.py
+     network:
+       port: 3000
+   env:
+     - name: AWS_REGION
+       value: us-west-2
+     - name: BUCKET_NAME
+       value: my-bucket-name
+     - name: VIDEO_FOLDER
+       value: videos/
+     - name: SUBTITLE_FOLDER
+       value: subtitles/
+     - name: MAX_CONTENT_LENGTH
+       value: "524288000"
+     - name: BEDROCK_MODEL_ID
+       value: anthropic.claude-3-5-sonnet-20240620-v1:0
+     - name: TMP_DIR
+       value: /tmp
+     - name: FLASK_DEBUG
+       value: "False"
