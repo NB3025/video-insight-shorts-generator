@@ -25,7 +25,7 @@ run:
     - name: AWS_REGION
       value: us-west-2
     - name: BUCKET_NAME
-      value: shorts-gen-s3-nb
+      value: shorts-generator-s3-nb
     - name: VIDEO_FOLDER
       value: videos/
     - name: SUBTITLE_FOLDER
