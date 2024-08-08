@@ -29,6 +29,8 @@ AWS_REGION = os.environ.get('AWS_REGION', 'us-west-2')
 BUCKET_NAME = os.environ.get('BUCKET_NAME', 'default-bucket-name')
 
 
+logger.info(f"BUCKET_NAME is {BUCKET_NAME}")
+
 session = boto3.Session(region_name=AWS_REGION)
 s3 = session.client('s3')
 transcribe = session.client("transcribe")
