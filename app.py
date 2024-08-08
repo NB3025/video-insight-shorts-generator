@@ -34,7 +34,8 @@ logger.info(f"BUCKET_NAME is {BUCKET_NAME}")
 session = boto3.Session(region_name=AWS_REGION)
 s3 = session.client('s3')
 transcribe = session.client("transcribe")
-bedrock = session.client("bedrock-runtime")
+bedrock_session = boto3.Session(region_name=BEDROCK_AWS_REGION)
+bedrock = bedrock_session.client("bedrock-runtime")
 
 VIDEO_FOLDER = 'videos/'
 SUBTITLE_FOLDER = 'subtitles/'

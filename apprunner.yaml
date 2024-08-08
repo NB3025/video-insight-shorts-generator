@@ -23,6 +23,8 @@ run:
     env: PORT
   env:
     - name: AWS_REGION
+      value: us-east-1
+    - name: BEDROCK_AWS_REGION
       value: us-west-2
     - name: BUCKET_NAME
       value: shorts-generator-s3-nb
