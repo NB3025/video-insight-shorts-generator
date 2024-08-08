@@ -25,8 +25,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 
-AWS_REGION = os.environ.get('AWS_REGION', 'us-west-2')
+AWS_REGION = os.environ.get('AWS_REGION', 'us-east-1')
 BUCKET_NAME = os.environ.get('BUCKET_NAME', 'default-bucket-name')
+BEDROCK_AWS_REGION = os.environ.get('BEDROCK_AWS_REGION', 'us-west-2')
 
 
 logger.info(f"BUCKET_NAME is {BUCKET_NAME}")
