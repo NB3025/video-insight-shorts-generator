@@ -36,7 +36,6 @@ s3 = session.client('s3')
 transcribe = session.client("transcribe")
 bedrock = session.client("bedrock-runtime")
 
-BUCKET_NAME = f'shortvideo-s3-{uuid.uuid4()}'
 VIDEO_FOLDER = 'videos/'
 SUBTITLE_FOLDER = 'subtitles/'
 
